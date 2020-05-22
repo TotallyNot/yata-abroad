@@ -48,6 +48,6 @@ function update(items) {
 }
 
 const items = scrapeStock();
-if (items) {
+if (items.length) {
     update(items);
 }
