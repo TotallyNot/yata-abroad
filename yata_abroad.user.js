@@ -14,13 +14,21 @@
 function scrapeStock() {
     const items = document.querySelectorAll(".item-info-wrap");
 
-    return [...items].map((item) => ({
-        id: parseInt(item.querySelector("[id^=item]").id.match(/[0-9]+/)[0]),
-        quantity: parseInt(item.querySelector(".stck-amount").innerText),
-        cost: parseInt(
-            item.querySelector(".c-price").innerText.replace(/[^0-9]+/g, "")
-        ),
-    }));
+    return Object.fromEntries(
+        [...items].map((item) => [
+            item.querySelector("[id^=item]").id.match(/[0-9]+/)[0],
+            {
+                quantity: parseInt(
+                    item.querySelector(".stck-amount").innerText
+                ),
+                cost: parseInt(
+                    item
+                        .querySelector(".c-price")
+                        .innerText.replace(/[^0-9]+/g, "")
+                ),
+            },
+        ])
+    );
 }
 
 function update(items) {
