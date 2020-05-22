@@ -16,7 +16,7 @@ function scrapeStock() {
 
     return [...items].map((item) => ({
         id: parseInt(item.querySelector("[id^=item]").id.match(/[0-9]+/)[0]),
-        stock: parseInt(item.querySelector(".stck-amount").innerText),
+        quantity: parseInt(item.querySelector(".stck-amount").innerText),
         cost: parseInt(
             item.querySelector(".c-price").innerText.replace(/[^0-9]+/g, "")
         ),
