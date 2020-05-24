@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YATA abroad
 // @namespace    yata.alwaysdata.net
-// @version      0.2
+// @version      0.3
 // @updateURL    https://github.com/TotallyNot/yata-abroad/raw/master/js/yata_abroad.user.js
 // @description  Update item stocks abroad for YATA
 // @author       Pyrit[2111649]
@@ -56,6 +56,6 @@ function update(items) {
 }
 
 const items = scrapeStock();
-if (Object.keys(items.length).length) {
+if (Object.keys(items).length) {
     update(items);
 }
