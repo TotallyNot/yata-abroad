@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         YATA abroad
 // @namespace    yata.alwaysdata.net
-// @version      0.4
-// @updateURL    https://github.com/TotallyNot/yata-abroad/raw/master/js/yata_abroad.user.js
+// @version      0.5
+// @updateURL    https://raw.githubusercontent.com/TotallyNot/yata-abroad/master/yata_abroad.user.js
 // @description  Update item stocks abroad for YATA
 // @author       Pyrit[2111649]
 // @match        https://www.torn.com/index.php
