@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YATA abroad
 // @namespace    yata.alwaysdata.net
-// @version      0.5
+// @version      0.6
 // @updateURL    https://raw.githubusercontent.com/TotallyNot/yata-abroad/master/yata_abroad.user.js
 // @description  Update item stocks abroad for YATA
 // @author       Pyrit[2111649]
@@ -34,25 +34,26 @@ function scrapeStock() {
 }
 
 function update(items) {
+    const payload = {
+        country: document
+            .querySelector(".content-title > h4")
+            .innerText.substr(0, 3)
+            .toLowerCase(),
+        client: "YATA abroad userscript",
+        version: GM.info.script.version,
+        author_name: "Pyrit",
+        author_id: 2111649,
+        items,
+    };
+    console.log(payload);
+
     GM.xmlHttpRequest({
         url: "https://yata.alwaysdata.net/bazaar/abroad/import/",
         method: "POST",
         headers: {
             "content-type": "application/json",
         },
-        data: JSON.stringify({
-            country: document
-                .querySelector(".content-title > h4")
-                .innerText.substr(0, 3)
-                .toLowerCase(),
-            client: "YATA abroad userscript",
-            uid: parseInt(
-                document
-                    .querySelector('script[src^="/js/chat/chat"]')
-                    .getAttribute("uid")
-            ),
-            items,
-        }),
+        data: JSON.stringify(payload),
         onload: (response) => console.log(response),
     });
 }
