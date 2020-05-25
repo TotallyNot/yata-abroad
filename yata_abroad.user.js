@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YATA abroad
 // @namespace    yata.alwaysdata.net
-// @version      0.3
+// @version      0.4
 // @updateURL    https://github.com/TotallyNot/yata-abroad/raw/master/js/yata_abroad.user.js
 // @description  Update item stocks abroad for YATA
 // @author       Pyrit[2111649]
@@ -19,7 +19,9 @@ function scrapeStock() {
             item.querySelector("[id^=item]").id.match(/[0-9]+/)[0],
             {
                 quantity: parseInt(
-                    item.querySelector(".stck-amount").innerText
+                    item
+                        .querySelector(".stck-amount")
+                        .innerText.replace(/[^0-9]+/g, "")
                 ),
                 cost: parseInt(
                     item
