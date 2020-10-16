@@ -48,7 +48,7 @@ function update(items) {
     console.log(payload);
 
     GM.xmlHttpRequest({
-        url: "https://yata.alwaysdata.net/bazaar/abroad/import/",
+        url: "https://yata.alwaysdata.net/api/v1/travel/import/",
         method: "POST",
         headers: {
             "content-type": "application/json",
